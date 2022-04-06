@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.frameLayout, BoredFragment.newInstance()).commit()
+                .replace(R.id.frameLayout, NewsFragment.newInstance()).commit()
         }
 
     }
