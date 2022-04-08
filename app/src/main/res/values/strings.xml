@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">News Application</string>
+    <string name="desc">desc</string>
+    <string name="refresh">Refresh</string>
 </resources>

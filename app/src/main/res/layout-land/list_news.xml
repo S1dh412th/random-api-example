@@ -10,34 +10,37 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/newsImage"
-            android:layout_width="162dp"
-            android:layout_height="154dp"
-            android:layout_marginEnd="260dp"
+            android:layout_width="145dp"
+            android:layout_height="134dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.473"
-            app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
+            app:layout_constraintVertical_bias="0.006"
+            app:srcCompat="@android:drawable/ic_lock_idle_alarm"
+            android:contentDescription="@string/desc" />
 
         <TextView
             android:id="@+id/newsTitle"
-            android:layout_width="0dp"
+            android:layout_width="179dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:text="@{newsEntry.title}"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/newsImage"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.025"
             app:layout_constraintStart_toEndOf="@+id/newsImage"
-            app:layout_constraintTop_toTopOf="@+id/newsImage" />
+            app:layout_constraintTop_toTopOf="@+id/newsImage"
+            app:layout_constraintVertical_bias="0.401" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
