@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout-land/list_news.xml" value="0.2623456790123457" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2408233642578126" />
-        <entry key="app/src/main/res/layout/bored_api.xml" value="0.2546875" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2076923076923077" />
+        <entry key="app/src/main/res/layout/bored_api.xml" value="0.19636363636363635" />
+        <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.2078804347826087" />
+        <entry key="app/src/main/res/layout/fragment_bored.xml" value="0.2078804347826087" />
+        <entry key="app/src/main/res/layout/fragment_news.xml" value="0.2078804347826087" />
         <entry key="app/src/main/res/layout/list_news.xml" value="0.3049107869466146" />
         <entry key="app/src/main/res/menu/item_menu.xml" value="0.24114583333333334" />
       </map>

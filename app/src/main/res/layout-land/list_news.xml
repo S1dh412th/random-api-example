@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/newsImage"
             android:layout_width="145dp"
-            android:layout_height="134dp"
+            android:layout_height="134dp
             android:contentDescription="@string/desc"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

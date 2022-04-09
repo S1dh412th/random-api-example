@@ -1,7 +1,6 @@
 package com.example.newsapplication
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.news_api.Instance
+import com.example.news_api.model.NewsResponse
 import com.example.newsapplication.databinding.FragmentNewsBinding
 import kotlinx.coroutines.launch
 
@@ -21,15 +21,7 @@ class NewsFragment : Fragment() {
     private lateinit var manager: RecyclerView.LayoutManager
     private lateinit var newsFragmentViewModel: NewsFragmentViewModel
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            getNews(2)
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            getNews(1)
-        }
-    }
+    private var response: NewsResponse? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

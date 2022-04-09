@@ -16,8 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.frameLayout, NewsFragment.newInstance()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.frameLayout, NewsFragment.newInstance()).commit()
         }
 
     }
