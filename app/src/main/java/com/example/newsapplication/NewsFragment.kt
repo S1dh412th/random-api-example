@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +19,8 @@ import kotlinx.coroutines.launch
 class NewsFragment : Fragment() {
     private var binding: FragmentNewsBinding? = null
     private lateinit var manager: RecyclerView.LayoutManager
-    private var noOfItem: Int = 1
+    private lateinit var newsFragmentViewModel: NewsFragmentViewModel
+
     private var response: NewsResponse? = null
 
     override fun onCreateView(
@@ -26,11 +28,13 @@ class NewsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNewsBinding.inflate(layoutInflater)
-        getNews()
+        newsFragmentViewModel = ViewModelProvider(this)[NewsFragmentViewModel::class.java]
+        getNews(1)
+
         return binding!!.root
     }
 
-    private fun getNews() {
+    private fun getNews(noOfItem: Int) {
 
         manager = GridLayoutManager(this.context, noOfItem)
 
@@ -38,14 +42,15 @@ class NewsFragment : Fragment() {
 
             val newsRepository = Instance.getNewsRepository()
 
-            if (response == null) {
-                response = newsRepository.getNewsTopHeadlines()
+            if (newsFragmentViewModel.getSavedResponse() == null) {
+                newsFragmentViewModel.saveResponse(newsRepository.getNewsTopHeadlines())
             }
 
             binding?.newsRecyclerView?.apply {
-                val adapterRef = NewsRecyclerViewAdapter(response!!.articles)
+                val adapterRef = newsFragmentViewModel.getSavedResponse()
+                    ?.let { NewsRecyclerViewAdapter(it.articles) }
                 adapter = adapterRef
-                adapterRef.setOnItemClickListener(object : NewsRecyclerViewAdapter.OnItemClickListener{
+                adapterRef?.setOnItemClickListener(object : NewsRecyclerViewAdapter.OnItemClickListener{
                     override fun onItemClick(position: Int, externalLink: String?) {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(externalLink))
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
